@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,6 +18,7 @@ import poly.edu.DAO.AccountDAO;
 import poly.edu.DAO.CategoryDAO;
 import poly.edu.DAO.ProductDAO;
 import poly.edu.entity.Account;
+import poly.edu.entity.Contact;
 import poly.edu.entity.Product;
 import poly.edu.service.ParamService;
 import poly.edu.service.SessionService;
@@ -59,7 +60,7 @@ public class HomeController {
 		return "Userindex";
 	}
 
-	@GetMapping("/login")
+	@GetMapping("/Login")
 	public String showLogin() {
 		return "Login";
 	}
@@ -82,29 +83,12 @@ public class HomeController {
 	public String showAbouts() {
 		return "UserAbout";
 	}
-
-	@PostMapping("/ResultLogin")
-	public String ResultLogin(Model model) {
-		String u = param.getString("username", "");
-		String p = param.getString("password", "");
-		try {
-			Optional<Account> account = accountrepository.findById(u);
-			if (!account.get().getPassword().equals(p)) {
-				model.addAttribute("MESSAGE", "Invalid password");
-			} else {
-				String uri = session.get("security-uri");
-				if (uri != null) {
-					return "redirect:" + uri;
-				} else {
-					model.addAttribute("MESSAGE", "Login successfull");
-					session.set("USERNAME", u);
-				}
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			model.addAttribute("MESSAGE", "Invalid username");
-		}
-		return "redirect:/home";
+	@RequestMapping("/contact")
+	public String showContacts(@ModelAttribute("CONTACT") Contact contact, Model model ) {
+		
+		model.addAttribute("CONTACT", new Contact() );
+		
+		return "UserContact";
 	}
 
 }

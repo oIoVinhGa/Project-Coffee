@@ -29,6 +29,10 @@
 		height: 100%;
 	}
 }
+
+.error {
+	color: red;
+}
 </style>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
@@ -59,42 +63,49 @@
 
 						<!-- Email input -->
 						<div class="form-outline mb-4">
+							<label class="form-label" for="form3Example3">Email</label>
 							<form:input type="text" id="form3Example3" path="email"
 								class="form-control form-control-lg"
 								placeholder="Enter a valid Email" name="email" />
-								<label
-								class="form-label" for="form3Example3" >Email</label>
 
 							<form:errors path="email" cssClass="error"></form:errors>
 						</div>
 						<div class="form-outline mb-4">
-							<form:input type="text" id="form3Example3" path="email"
+							<label class="form-label" for="form3Example3">Username</label>
+							<form:input type="text" id="form3Example3" path="username"
 								class="form-control form-control-lg"
 								placeholder="Enter a valid Username" name="username" />
-								<label
-								class="form-label" for="form3Example3" >Username</label>
 
-							<form:errors path="email" cssClass="error"></form:errors>
+
+							<form:errors path="username" cssClass="error"></form:errors>
 						</div>
 						<div class="form-outline mb-4">
-							<form:input type="password" id="form3Example3" path="email"
+							<label class="form-label" for="form3Example3">Fullname</label>
+							<form:input type="text" id="form3Example3" path="fullname"
+								class="form-control form-control-lg"
+								placeholder="Enter a valid Username" name="username" />
+
+
+							<form:errors path="fullname" cssClass="error"></form:errors>
+						</div>
+						<div class="form-outline mb-4">
+							<label class="form-label" for="form3Example3">Password</label>
+							<form:input type="password" id="form3Example3" path="password"
 								class="form-control form-control-lg"
 								placeholder="Enter a valid password" name="password" />
-								<label
-								class="form-label" for="form3Example3" >Password</label>
 
-							<form:errors path="email" cssClass="error"></form:errors>
+
+							<form:errors path="password" cssClass="error"></form:errors>
 						</div>
 
-						<form:button type="submit" class="btn btn-primary">Submit</form:button>
-						<form:button type="reset" class="btn btn-primary">Cancel</form:button>
-						<a href="/account/views" class="btn btn-primary">Display
-							Account</a>
+						<form:button type="submit" class="btn btn-primary"
+							formaction="/register/Create">Register</form:button>
 					</form:form>
-					<div class="text-center text-lg-start mt-4 pt-2">
-						
-						<p class="small fw-bold mt-2 pt-1 mb-0">
-							You already have an account? <a href="#!" class="link-danger">Login</a>
+					<div class="text-center text-lg-start mt-4">
+
+						<p class="small fw-bold mt-2 mb-0">
+							You already have an account? <a href="/home/Login"
+								class="link-danger">Login</a>
 						</p>
 					</div>
 				</div>

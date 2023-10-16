@@ -28,7 +28,7 @@
 									Us</a></li>
 						</ul>
 						<div class="user_optio_box">
-							<a href="/home/login"> <i class="fa fa-user" aria-hidden="true"></i>
+							<a href="/home/Login"> <i class="fa fa-user" aria-hidden="true"></i>
 							</a> <a href="/shopping-cart/views"> <i class="fa fa-shopping-cart"
 								aria-hidden="true"></i>
 							</a>
