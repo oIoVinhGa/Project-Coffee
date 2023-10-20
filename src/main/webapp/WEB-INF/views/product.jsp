@@ -18,9 +18,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 <!-- Font Awesome Icons -->
 <link rel="stylesheet"
-	href="../../assets/plugins/fontawesome-free/css/all.min.css">
+	href="../../../assets/plugins/fontawesome-free/css/all.min.css">
 <!-- Theme style -->
-<link rel="stylesheet" href="../../assets/dist/css/adminlte.min.css">
+<link rel="stylesheet" href="../../../assets/dist/css/adminlte.min.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <style type="text/css">
@@ -103,11 +103,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				</div>
 			</div>
 			<form:button type="submit" class="btn btn-primary"
-				formaction="/product/Create">Create</form:button>
+				formaction="/admin/product/Create">Create</form:button>
 			<form:button type="submit" class="btn btn-primary"
-				formaction="/product/page">Reset</form:button>
+				formaction="/admin/product/page">Reset</form:button>
 			<form:button type="submit" class="btn btn-primary"
-				formaction="/product/Create">Update</form:button>
+				formaction="/admin/product/Create">Update</form:button>
 
 		</form:form>
 
@@ -139,7 +139,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						<td>${p.category.name}</td>
 						<td><a href="/product/page?btnDel=&id=${p.id}"><i
 								class="bi bi-trash text-danger"></i></a> <a
-							href="/product/edit/${p.id}"><i class="bi bi-pencil-fill"></i></a></td>
+							href="/admin/product/edit/${p.id}"><i class="bi bi-pencil-fill"></i></a></td>
 
 					</tr>
 				</c:forEach>
@@ -149,10 +149,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			
 		</table>
 		<ul>
-		<a href="/product/page?p=0${param.field!=''?'':'&field='+param.field}" class="btn btn-outline-primary">First</a>
-		<a href="/product/page?p=${page.number==0?page.number:page.number-1}${param.field!=''?'':'&field='+param.field}" class="btn btn-outline-primary" >Previous</a>
-		<a href="/product/page?p=${page.number+1}${param.field!=''?'':'&field='+param.field}" class="btn btn-outline-primary"${page.number==page.totalPages?'disabled':''}>Next</a>
-		<a href="/product/page?p=${page.totalPages-1}${param.field!=''?'':'&field='+param.field}" class="btn btn-outline-primary">Last</a>
+		<a href="/admin/product/page?p=0${param.field!=''?'':'&field='+param.field}" class="btn btn-outline-primary">First</a>
+		<a href="/admin/product/page?p=${page.number==0?page.number:page.number-1}${param.field!=''?'':'&field='+param.field}" class="btn btn-outline-primary" >Previous</a>
+		<a href="/admin/product/page?p=${page.number+1}${param.field!=''?'':'&field='+param.field}" class="btn btn-outline-primary"${page.number==page.totalPages?'disabled':''}>Next</a>
+		<a href="/admin/product/page?p=${page.totalPages-1}${param.field!=''?'':'&field='+param.field}" class="btn btn-outline-primary">Last</a>
 			<li>Số thực thể hiện tại: ${page.numberOfElements}</li>
 			<li>Trang số: ${page.number}</li>
 			<li>Kích thước trang: ${page.size}</li>
@@ -176,10 +176,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<!-- REQUIRED SCRIPTS -->
 
 	<!-- jQuery -->
-	<script src="../../assets/plugins/jquery/jquery.min.js"></script>
+	<script src="../../../assets/plugins/jquery/jquery.min.js"></script>
 	<!-- Bootstrap 4 -->
-	<script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="../../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- AdminLTE App -->
-	<script src="../../assets/dist/js/adminlte.min.js"></script>
+	<script src="../../../assets/dist/js/adminlte.min.js"></script>
 </body>
 </html>

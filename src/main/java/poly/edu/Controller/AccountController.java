@@ -22,7 +22,7 @@ import poly.edu.entity.Account;
 import poly.edu.utils.FileUploadUtil;
 
 @Controller
-@RequestMapping("/account")
+@RequestMapping("/admin/account")
 public class AccountController {
 	@Autowired AccountDAO accountDao;
 	@RequestMapping("/views")
@@ -43,7 +43,7 @@ public class AccountController {
 			}
 			List<Account> account = accountDao.findAll();
 			model.addAttribute("ACCOUNTS", account);
-			return "admin/Account";
+			return "Account";
 		}
 		String filename = org.springframework.util.StringUtils.cleanPath(multipartFile.getOriginalFilename());
 		String uploadDir = "uploads/";
@@ -51,7 +51,7 @@ public class AccountController {
 		accountDao.save(ac);
 		FileUploadUtil.saveFile(uploadDir, filename, multipartFile);
 		
-		return "redirect:/account/views";
+		return "redirect:/admin/account/views";
 	}
 	
 	@GetMapping("/edit/{username}")
@@ -71,6 +71,6 @@ public class AccountController {
 		accountDao.deleteById(username);
 		List<Account> account = accountDao.findAll();
 		model.addAttribute("ACCOUNTS", account);
-		return "redirect:/account/views";
+		return "redirect:/admin/account/views";
 	}
 }

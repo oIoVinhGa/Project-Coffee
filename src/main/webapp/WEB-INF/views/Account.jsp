@@ -18,9 +18,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 <!-- Font Awesome Icons -->
 <link rel="stylesheet"
-	href="../../assets/plugins/fontawesome-free/css/all.min.css">
+	href="../../../assets/plugins/fontawesome-free/css/all.min.css">
 <!-- Theme style -->
-<link rel="stylesheet" href="../../assets/dist/css/adminlte.min.css">
+<link rel="stylesheet" href="../../../assets/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -59,7 +59,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			<!-- Main content -->
 		<div class="container">
 		<h2>Form Account</h2>
-		<form:form action="/account/Create" modelAttribute="ACCOUNT"
+		<form:form action="/admin/account/Create" modelAttribute="ACCOUNT"
 			method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label>UserName</label>
@@ -102,11 +102,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				</div>
 			</div>
 			<form:button type="submit" class="btn btn-primary"
-				formaction="/account/Create">Create</form:button>
+				formaction="/admin/account/Create">Create</form:button>
 			<form:button type="submit" class="btn btn-primary"
-				formaction="/account/">Reset</form:button>
+				formaction="/admin/account/views">Reset</form:button>
 			<form:button type="submit" class="btn btn-primary"
-				formaction="/account/Create">Update</form:button>
+				formaction="/admin/account/Create">Update</form:button>
 
 		</form:form>
 		<hr>
@@ -135,7 +135,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						<td>${ac.activated?"online":"offline"}</td>
 						<td>${ac.admin?"Admin":"User"}</td>
 						<td><a class="btn btn-primary btn-sm"
-							href="/account/edit/${ac.username}">Edit</a>| <a
+							href="/admin/account/edit/${ac.username}">Edit</a>| <a
 							class="btn btn-danger btn-sm"
 							href="?btnDel=&username=${ac.username}">Del</a></td>
 					</tr>
@@ -159,10 +159,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<!-- REQUIRED SCRIPTS -->
 
 	<!-- jQuery -->
-	<script src="../../assets/plugins/jquery/jquery.min.js"></script>
+	<script src="../../../assets/plugins/jquery/jquery.min.js"></script>
 	<!-- Bootstrap 4 -->
-	<script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="../../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- AdminLTE App -->
-	<script src="../../assets/dist/js/adminlte.min.js"></script>
+	<script src="../../../assets/dist/js/adminlte.min.js"></script>
 </body>
 </html>

@@ -30,7 +30,7 @@ import poly.edu.entity.Product;
 import poly.edu.utils.FileUploadUtil;
 
 @Controller
-@RequestMapping("/product")
+@RequestMapping("/admin/product")
 public class ProductController {
 	@Autowired
 	ProductDAO productDao;
@@ -92,7 +92,7 @@ public class ProductController {
 		product.setCreateDate(new Date());
 		productDao.save(product);
 		FileUploadUtil.saveFile(uploadDir, filename, multipartFile);
-		return "redirect:/product/page";
+		return "redirect:/admin/product/page";
 	}
 
 //	@PostMapping("Update")
@@ -143,7 +143,7 @@ public class ProductController {
 			model.addAttribute("items", productDao.findAll());
 			return "product";
 		} else {
-			return "redirect:/product/page";
+			return "redirect:/admin/product/page";
 		}
 
 //		return "product";
@@ -152,6 +152,6 @@ public class ProductController {
 	@GetMapping(value = "page", params = "btnDel")
 	public String DeleteProduct(@RequestParam("id") Integer id, Model model) {
 		productDao.deleteById(id);
-		return "redirect:/product/page";
+		return "redirect:/admin/product/page";
 	}
 }

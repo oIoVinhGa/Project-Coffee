@@ -5,10 +5,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import poly.edu.DAO.AccountDAO;
+import poly.edu.DTO.AccountDTO;
 import poly.edu.entity.Account;
 import poly.edu.service.ParamService;
 import poly.edu.service.SessionService;
@@ -23,27 +28,48 @@ public class LoginController {
 	@Autowired
 	SessionService session;
 
+	@GetMapping({ "", "/", "index" })
+	public String showLogin(@ModelAttribute("account") Account acc) {
+		return "Login";
+	}
+
 	@PostMapping("/ResultLogin")
-	public String ResultLogin(Model model) {
-		String u = param.getString("username", "");
-		String p = param.getString("password", "");
-		try {
-			Optional<Account> account = accountrepository.findById(u);
-			if (!account.get().getPassword().equals(p)) {
-				model.addAttribute("MESSAGE", "Invalid password");
-			} else {
-				String uri = session.get("security-uri");
-				if (uri != null) {
-					return "redirect:" + uri;
+	public String login(Model model, @Validated @ModelAttribute("account") AccountDTO accDTO, BindingResult result) {
+		if (!result.hasErrors()) {
+			Account acc = null;
+			try {
+				Optional<Account> accresult = accountrepository.findById(accDTO.getUsername());
+				if (accresult.get().getPassword().equals(accDTO.getPassword())) {
+					acc = accountrepository.findById(accDTO.getUsername()).get();
+					session.set("user", acc);
+					String uri = session.get("security-uri");
+					if (uri != null) {
+						if (!uri.equals("") && uri.contains("/admin/**")) {
+							return "redirect:/admin/account/views";
+						} else if (uri.contains("/account/")) {
+							return "redirect:/home";
+						} else
+							return "redirect:/home";
+					} else
+						return "redirect:/home";
 				} else {
-					model.addAttribute("MESSAGE", "Login successfull");
-					session.set("USERNAME", u);
+					model.addAttribute("error_loginPass", "Password không đúng!");
 				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				model.addAttribute("error_loginUsername", "Username không tồn tại!");
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			model.addAttribute("MESSAGE", "Invalid username");
+		}else {
+			System.out.println("Text:::::: " );
 		}
-		return "redirect:/home";
+		return "Login";
+	}
+
+	@PostMapping("/logout")
+	public String logout(@ModelAttribute("account") Account account) {
+		session.remove("user");
+		session.remove("security-uri");
+		return "redirect:/login";
 	}
 }

@@ -18,7 +18,7 @@ import poly.edu.DAO.CategoryDAO;
 import poly.edu.entity.Catagory;
 
 @Controller
-@RequestMapping("/category")
+@RequestMapping("/admin/category")
 public class CatagoryController {
 
 	@Autowired
@@ -71,7 +71,7 @@ public class CatagoryController {
 	@GetMapping("/edit/{id}")
 	public String editCategory(Model model , @PathVariable("id") String id,@ModelAttribute("item") Catagory ca) {
 		if(dao.findById(ca.getId()).isEmpty()) {
-			return "redirect:/category/index";
+			return "redirect:/admin/category/index";
 		}else {
 			Catagory catagory = dao.findById(id).get();
 			ca.setId(catagory.getId());
@@ -85,7 +85,7 @@ public class CatagoryController {
 	@GetMapping("/delete")
 	public String deleteCategory(Model model , @RequestParam("id") String id,@ModelAttribute("item") Catagory ca) {
 		if(dao.findById(ca.getId()).isEmpty()) {
-			return "redirect:/category/index";
+			return "redirect:/admin/category/index";
 		}else {
 			dao.deleteById(id);
 			model.addAttribute("success_category", "delete success");

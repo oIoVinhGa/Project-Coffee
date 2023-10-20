@@ -42,7 +42,42 @@
 
 	<!-- header section strats -->
 	<header class="header_section">
-		<%@ include file="../views/common/header.jsp"%>
+		<div class="container-fluid">
+			<nav class="navbar navbar-expand-lg custom_nav-container ">
+				<a class="navbar-brand" href="/home"> <span> Skyrim </span>
+				</a>
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class=""> </span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav  ">
+						<li class="nav-item"><a class="nav-link" href="/home">Home
+								<span class="sr-only">(current)</span>
+						</a></li>
+						<li class="nav-item"><a class="nav-link" href="/home/abouts">
+								About</a></li>
+						<li class="nav-item"><a class="nav-link" href="/home/product">Products</a>
+						</li>
+						<li class="nav-item"><a class="nav-link"
+							href="testimonial.html">Testimonial</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/home/contact">Contact Us</a></li>
+					</ul>
+					<div class="user_optio_box">
+						<a href="/home/Login"> <i class="fa fa-user"
+							aria-hidden="true"></i>
+						</a> <a href="/shopping-cart/views"> <i
+							class="fa fa-shopping-cart" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+			</nav>
+		</div>
 	</header>
 	<!-- end header section -->
 
@@ -74,7 +109,7 @@
 						<table class="table table-bordered">
 							<thead>
 								<tr>
-									
+
 									<th>Name</th>
 									<th>Price</th>
 									<th>Quantity</th>
@@ -88,7 +123,7 @@
 									<form action="/shopping-cart/update" method="post">
 										<input type="hidden" name="id" value="${item.productId}" />
 										<tr>
-											
+
 											<td>${item.name }</td>
 											<td>${item.price}</td>
 											<td><input name="qty" value="${item.qty}"
@@ -105,25 +140,24 @@
 				</div>
 				<div class="col-md-4 ">
 					<div class="form_container">
-						<form action="">
+						<form:form action="/shopping-cart/create" method="post"
+							modelAttribute="ODERS">
 							<div>
-								<input type="text" placeholder="Your Name" />
+								<form:input path="phonenumber" type="text"
+									placeholder="Phone Number" />
+								<form:errors path="phonenumber" class="form-text text-danger" />
 							</div>
 							<div>
-								<input type="text" placeholder="Phone Number" />
-							</div>
-							<div>
-								<input type="email" placeholder="Email" />
-							</div>
-							<div>
-								<input type="text" class="message-box" placeholder="Address" />
+								<form:input path="Address" type="text" class="message-box"
+									placeholder="Address" />
+								<form:errors path="Address" class="form-text text-danger" />
 							</div>
 							<p>Tong Tien:${TOTAL}</p>
 							<div class="btn_box">
-								<button>SEND</button>
+								<button formaction="/shopping-cart/create">SEND</button>
 							</div>
 
-						</form>
+						</form:form>
 					</div>
 
 				</div>

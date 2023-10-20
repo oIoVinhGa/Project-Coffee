@@ -60,10 +60,7 @@ public class HomeController {
 		return "Userindex";
 	}
 
-	@GetMapping("/Login")
-	public String showLogin() {
-		return "Login";
-	}
+	
 
 	@GetMapping("/register")
 	public String showRegister(Model model) {

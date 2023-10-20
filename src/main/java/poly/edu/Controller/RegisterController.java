@@ -21,8 +21,9 @@ public class RegisterController {
 		if (result.hasErrors()) {
 			return "Register";
 		}
+		ac.setAdmin(false);
 		accountrepository.save(ac);
 		model.addAttribute("ACCOUNT", new Account());
-		return "redirect:/home/Login";
+		return "redirect:/Login";
 	}
 }

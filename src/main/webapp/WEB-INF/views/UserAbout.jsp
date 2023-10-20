@@ -42,10 +42,10 @@
 	<div class="hero_area">
 		<!-- header section strats -->
 		<header class="header_section">
-			<div class="container-fluid">
+				<div class="container-fluid">
 				<nav class="navbar navbar-expand-lg custom_nav-container ">
-					<a class="navbar-brand" href="index.html"> <span> Skyrim
-					</span>
+					<a class="navbar-brand" href="/home"> <span>
+							Skyrim </span>
 					</a>
 
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -57,21 +57,21 @@
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav  ">
-							<li class="nav-item "><a class="nav-link" href="index.html">Home
-									<span class="sr-only">(current)</span>
-							</a></li>
-							<li class="nav-item active"><a class="nav-link"
-								href="about.html"> About</a></li>
-							<li class="nav-item"><a class="nav-link" href="product.html">Products</a>
+							<li class="nav-item"><a class="nav-link"
+								href="/home">Home <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item  active"><a class="nav-link" href="/home/abouts">
+									About</a></li>
+							<li class="nav-item"><a class="nav-link" href="/home/product">Products</a>
 							</li>
 							<li class="nav-item"><a class="nav-link"
 								href="testimonial.html">Testimonial</a></li>
-							<li class="nav-item"><a class="nav-link" href="contact.html">Contact
+							<li class="nav-item"><a class="nav-link" href="/home/contact">Contact
 									Us</a></li>
 						</ul>
 						<div class="user_optio_box">
-							<a href=""> <i class="fa fa-user" aria-hidden="true"></i>
-							</a> <a href=""> <i class="fa fa-shopping-cart"
+							<a href="/home/Login"> <i class="fa fa-user" aria-hidden="true"></i>
+							</a> <a href="/shopping-cart/views"> <i class="fa fa-shopping-cart"
 								aria-hidden="true"></i>
 							</a>
 						</div>
