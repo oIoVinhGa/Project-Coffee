@@ -13,12 +13,14 @@ import poly.edu.DAO.ContactDAO;
 import poly.edu.entity.Contact;
 
 @Controller
-@RequestMapping("/contact")
+@RequestMapping("/admin/contact")
 public class ContactController {
 
 	@Autowired
 	ContactDAO contactDAO;
-
+	
+//	@RequestMapping("")
+	
 	@PostMapping("/create")
 	public String createContact(@Valid @ModelAttribute("CONTACT") Contact contact, BindingResult result, Model model) {
 		if (result.hasErrors()) {

@@ -39,10 +39,12 @@ public class LoginController {
 			Account acc = null;
 			try {
 				Optional<Account> accresult = accountrepository.findById(accDTO.getUsername());
+				System.out.println( "accresult:" + accresult.get().getPassword() );
 				if (accresult.get().getPassword().equals(accDTO.getPassword())) {
 					acc = accountrepository.findById(accDTO.getUsername()).get();
 					session.set("user", acc);
 					String uri = session.get("security-uri");
+					System.out.println("uri:" + uri);
 					if (uri != null) {
 						if (!uri.equals("") && uri.contains("/admin/**")) {
 							return "redirect:/admin/account/views";

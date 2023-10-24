@@ -88,7 +88,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form_container">
-					<form:form action="/contact/create" modelAttribute="CONTACT"
+					<form:form action="/admin/contact/create" modelAttribute="CONTACT"
 						method="post">
 
 						<!-- Email input -->

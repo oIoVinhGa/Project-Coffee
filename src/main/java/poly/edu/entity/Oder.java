@@ -23,12 +23,15 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @SuppressWarnings("serial")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "Oders")
 public class Oder implements Serializable {
@@ -43,13 +46,16 @@ public class Oder implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Createdate")
-	Date CreateDate = new Date();
+	private Date createDate;
 
 	@Column(columnDefinition = "nvarchar(10)")
 	@NotBlank(message = "Phonenumber cannot be empty")
 	@Pattern(regexp = "^[0-9]*$", message = "Phonenumber must contain only numbers")
 	@Size(max = 10, message = "Phonenumber cannot be longer than 10 characters")
 	private String phonenumber;
+
+	@Column
+	private int Status;
 
 	@ManyToOne
 	@JoinColumn(name = "Username")

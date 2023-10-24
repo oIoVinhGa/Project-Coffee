@@ -4,8 +4,11 @@ import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class AccountDTO {
 	@NotEmpty(message = "Username not empty")
 	@Column(columnDefinition = "varchar(30)")

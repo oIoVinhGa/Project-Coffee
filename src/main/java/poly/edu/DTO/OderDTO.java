@@ -5,8 +5,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class OderDTO {
 
 	@Column(columnDefinition = "nvarchar(255)") // Điều chỉnh độ dài cột theo yêu cầu của bạn
