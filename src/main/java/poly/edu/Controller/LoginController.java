@@ -39,7 +39,7 @@ public class LoginController {
 			Account acc = null;
 			try {
 				Optional<Account> accresult = accountrepository.findById(accDTO.getUsername());
-				System.out.println( "accresult:" + accresult.get().getPassword() );
+				System.out.println("accresult:" + accresult.get().getPassword());
 				if (accresult.get().getPassword().equals(accDTO.getPassword())) {
 					acc = accountrepository.findById(accDTO.getUsername()).get();
 					session.set("user", acc);
@@ -47,13 +47,15 @@ public class LoginController {
 					System.out.println("uri:" + uri);
 					if (uri != null) {
 						if (!uri.equals("") && uri.contains("/admin/**")) {
+
 							return "redirect:/admin/account/views";
 						} else if (uri.contains("/account/")) {
-							return "redirect:/home";
+
+							return "redirect:/admin/account/views";
 						} else
-							return "redirect:/home";
+							return "redirect:/user/index";
 					} else
-						return "redirect:/home";
+						return "redirect:/user/index";
 				} else {
 					model.addAttribute("error_loginPass", "Password không đúng!");
 				}
@@ -62,16 +64,16 @@ public class LoginController {
 				e.printStackTrace();
 				model.addAttribute("error_loginUsername", "Username không tồn tại!");
 			}
-		}else {
-			System.out.println("Text:::::: " );
+		} else {
+			System.out.println("Text:::::: ");
 		}
 		return "Login";
 	}
 
-	@PostMapping("/logout")
+	@GetMapping("/logout")
 	public String logout(@ModelAttribute("account") Account account) {
 		session.remove("user");
 		session.remove("security-uri");
-		return "redirect:/login";
+		return "redirect:/Login";
 	}
 }

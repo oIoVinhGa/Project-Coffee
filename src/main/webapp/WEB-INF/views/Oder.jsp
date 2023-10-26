@@ -71,13 +71,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
 								</thead>
 								<tbody>
 									<c:forEach var="item" items="${ODERS}">
-										<form action="/shopping-cart/update" method="post">
+										<form action="/admin/oder/update" method="post">
+												<input type="hidden" name="id" value="${item.id}" />
 											<tr>
 												<td>${item.id}</td>
 												<td>${item.account.username}</td>
 												<td>${item.phonenumber}</td>
 												<td>${item.createDate}</td>
-												<td>${item.status}</td>
+												<td><select name="status" id="status" onblur="this.form.submit()">
+														<option value="0" ${item.status==0?'selected':''}>Đang
+															xử lí</option>
+														<option value="1" ${item.status==1?'selected':''}>Đã
+															Xữ lý</option>
+														<option value="2" ${item.status==2?'selected':''}>Đang
+															giao hàng</option>
+														<option value="3" ${item.status==3?'selected':''}>Giao
+															hàng thành công</option>
+														<option value="4" ${item.status==4?'selected':''}>Hủy</option>
+												</select></td>
 												<td>${item.address}</td>
 											</tr>
 										</form>

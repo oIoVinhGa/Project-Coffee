@@ -1,20 +1,19 @@
 package poly.edu.DTO;
 
 import jakarta.persistence.Column;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class AccountDTO {
+public class AccountForgotDTO {
 	@NotEmpty(message = "Username not empty")
 	@Column(columnDefinition = "varchar(30)")
 	private String username;
-
-	@NotEmpty(message = "Password not empty")
-	@Size(min = 6, message = "Password tu 6 ki tu")
-	@Column(columnDefinition = "varchar(30)")
-	private String password;
+	
+	@NotEmpty(message = "Email not empty")
+	@Email(message = "Email Khong dung dinh dang")
+	private String email;
 }

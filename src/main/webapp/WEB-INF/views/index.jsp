@@ -42,7 +42,7 @@
 
 		<!-- header section strats -->
 		<header class="header_section">
-			<%@ include file="../views/common/Userheader.jsp"%>
+			<%@ include file="../views/common/header.jsp"%>
 		</header>
 		<!-- end header section -->
 

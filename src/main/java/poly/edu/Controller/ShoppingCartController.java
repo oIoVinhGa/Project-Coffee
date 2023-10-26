@@ -85,7 +85,7 @@ public class ShoppingCartController {
 	 @PostMapping("/create")
 	    public String createBill(@Valid @ModelAttribute("ODERS") OderDTO oderDTO, BindingResult result, Model model) {
 	        if (!result.hasErrors()) {
-	            // Đảm bảo rằng đã trôi qua ít nhất 20 giây kể từ lần tạo hóa đơn trước đó
+	            // Đảm bảo rằng đã trôi qua ít nhất 60 giây kể từ lần tạo hóa đơn trước đó
 	            long currentTime = System.currentTimeMillis();
 	            if (currentTime - lastCreationTime >= 60000) {
 	                Account acc = session.get("user");

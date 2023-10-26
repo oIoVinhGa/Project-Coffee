@@ -41,7 +41,8 @@
 
 	<div class="hero_area">
 		<!-- header section strats -->
-		<div class="container-fluid">
+		<header class="header_section">
+				<div class="container-fluid">
 				<nav class="navbar navbar-expand-lg custom_nav-container ">
 					<a class="navbar-brand" href="/home"> <span>
 							Skyrim </span>
@@ -57,15 +58,15 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav  ">
 							<li class="nav-item"><a class="nav-link"
-								href="/user/index">Home <span class="sr-only">(current)</span></a>
+								href="/home">Home <span class="sr-only">(current)</span></a>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="/user/abouts">
+							<li class="nav-item  active"><a class="nav-link" href="/home/abouts">
 									About</a></li>
-							<li class="nav-item"><a class="nav-link" href="/user/product">Products</a>
+							<li class="nav-item"><a class="nav-link" href="/home/product">Products</a>
 							</li>
 							<li class="nav-item"><a class="nav-link"
 								href="testimonial.html">Testimonial</a></li>
-							<li class="nav-item active"><a class="nav-link" href="/user/contact">Contact
+							<li class="nav-item"><a class="nav-link" href="/home/contact">Contact
 									Us</a></li>
 						</ul>
 						<div class="user_optio_box">
@@ -80,64 +81,28 @@
 		</header>
 		<!-- end header section -->
 	</div>
-	<section class="contact_section layout_padding">
-		<div class="container">
-			<div class="heading_container">
-				<h2>Contact Us</h2>
-			</div>
+
+	<section class="about_section layout_padding">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6">
-					<div class="form_container">
-					<form:form action="/admin/contact/create" modelAttribute="CONTACT"
-						method="post">
-
-						<!-- Email input -->
-						<div class="form-outline mb-4">
-							<label class="form-label" for="form3Example3">Email</label>
-							<form:input type="text" id="form3Example3" path="email"
-								class="form-control form-control-lg"
-								placeholder="Enter a valid Email" name="email" />
-
-							<form:errors path="email" cssClass="error"></form:errors>
+					<div class="img_container">
+						<div class="img-box b1">
+							<img src="../assets/images/bo-4-tu-linh.png" alt="">
 						</div>
-						<div class="form-outline mb-4">
-							<label class="form-label" for="form3Example3">Your Name</label>
-							<form:input type="text" id="form3Example3" path="name"
-								class="form-control form-control-lg"
-								placeholder="Enter a valid Username" name="name" />
-
-
-							<form:errors path="name" cssClass="error"></form:errors>
+						<div class="img-box b2">
+							<img src="../assets/images/robusta-min.jpg" alt="">
 						</div>
-						<div class="form-outline mb-4">
-							<label class="form-label" for="form3Example3">Phone Number</label>
-							<form:input type="text" id="form3Example3" path="phonenumber"
-								class="form-control form-control-lg"
-								placeholder="Enter a valid Username" name="phonenumber" />
-
-
-							<form:errors path="phonenumber" cssClass="error"></form:errors>
-						</div>
-						<div class="form-outline mb-4">
-							<label class="form-label" for="form3Example3">Message</label>
-							<form:input type="text" id="form3Example3" path="Message"
-								class="form-control form-control-lg"
-								placeholder="Enter your message" name="Message" />
-
-
-							<form:errors path="Message" cssClass="error"></form:errors>
-						</div>
-
-						<form:button type="submit" class="btn btn-primary"
-							>Contact</form:button>
-					</form:form>
 					</div>
 				</div>
-				<div class="col-md-6 ">
-					<div class="map_container">
-						<div class="map">
-							<div id="googleMap"></div>
-						</div>
+				<div class="col-md-6">
+					<div class="detail-box">
+						<h2>Skyrim Coffee Shop</h2>
+						<p>Discover Skyrim at Dragonbrew Café! Immerse yourself in a
+							rustic, candlelit ambiance while enjoying unique, Skyrim-inspired
+							coffee and treats. Join our community with game nights and
+							cosplay events. Coffee and adventure, all in one place!</p>
+						<a href="/home/abouts"> Read More </a>
 					</div>
 				</div>
 			</div>
@@ -170,10 +135,6 @@
 	<script type="text/javascript" src="../assets/js/bootstrap.js"></script>
 	<!-- custom js -->
 	<script type="text/javascript" src="../assets/js/custom.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-		
-	</script>
 </body>
 
 

@@ -78,20 +78,20 @@
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav  ">
-							<li class="nav-item"><a class="nav-link" href="/user/index">Home
+							<li class="nav-item"><a class="nav-link" href="/home">Home
 									<span class="sr-only">(current)</span>
 							</a></li>
 							<li class="nav-item  "><a class="nav-link"
-								href="/user/abouts"> About</a></li>
+								href="/home/abouts"> About</a></li>
 							<li class="nav-item active"><a class="nav-link"
-								href="/user/product">Products</a></li>
+								href="/home/product">Products</a></li>
 							<li class="nav-item"><a class="nav-link"
 								href="testimonial.html">Testimonial</a></li>
 							<li class="nav-item"><a class="nav-link"
-								href="/user/contact">Contact Us</a></li>
+								href="/home/contact">Contact Us</a></li>
 						</ul>
 						<div class="user_optio_box">
-							<a href="/Login"> <i class="fa fa-user"
+							<a href="/home/Login"> <i class="fa fa-user"
 								aria-hidden="true"></i>
 							</a> <a href="/shopping-cart/views"> <i
 								class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -115,9 +115,9 @@
 				<div class="navsub_container"
 					style="display: flex; justify-content: flex-start; width: 70%;">
 					<div class="sortby" style="padding: 0px 10px">
-						<label>Sort By:</label> <a href="/user/product/sortdesc"><i
+						<label>Sort By:</label> <a href="/home/product/sortdesc"><i
 							class="bi bi-arrow-down-short"></i> </a> <a
-							href="/user/product/sortasc"><i class="bi bi-arrow-up-short"></i></a>
+							href="/home/product/sortasc"><i class="bi bi-arrow-up-short"></i></a>
 					</div>
 					<form:select id="categorySelect" path="category"
 						style="padding: 0px 10px">
@@ -130,16 +130,16 @@
 							aria-expanded="false">Lọc giá</button>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 							<li><a class="dropdown-item"
-								href="/user/product/searchMinMax0_500">Giá 0 đến 500.000</a></li>
+								href="/home/product/searchMinMax0_500">Giá 0 đến 500</a></li>
 							<li><a class="dropdown-item"
-								href="/user/product/searchMinMax500_1000">Giá 500.000 đến 1.000.000</a></li>
+								href="/home/product/searchMinMax500_1000">Giá 500 đến 1000</a></li>
 							<li><a class="dropdown-item"
-								href="/user/product/searchMinMax1000_1500">Giá 1.000.000 đến 1.500.000</a></li>
+								href="/home/product/searchMinMax1000_1500">Giá 1000 đến 1500</a></li>
 
 						</ul>
 					</div>
 				</div>
-				<form action="/user/product/search">
+				<form action="/home/product/search">
 					<div class="input-group mb-3 p-3">
 						<input name="search" type="text" class="form-control"
 							placeholder="Search..	" aria-label="Recipient's username"
@@ -185,7 +185,7 @@
 
 
 	<div class="product_btn" style="text-align: center;">
-		<a href="/user/product?p=0${param.field!=''?'':'&field='+param.field}"><i
+		<a href="/home/product?p=0${param.field!=''?'':'&field='+param.field}"><i
 			class="bi bi-chevron-double-left"></i></a>
 		<c:forEach begin="0" end="${pageproduct.totalPages-1}"
 			var="pageNumber">
@@ -195,11 +195,11 @@
 				</c:when>
 				<c:otherwise>
 					<a class="badge rounded-pill bg-primary"
-						href="/user/product?p=${pageNumber}">${pageNumber + 1}</a>
+						href="/home/product?p=${pageNumber}">${pageNumber + 1}</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
-		<a href="/user/product?p=${pageproduct.totalPages-1}"><i
+		<a href="/home/product?p=${pageproduct.totalPages-1}"><i
 			class="bi bi-chevron-double-right"></i></a>
 	</div>
 
@@ -276,7 +276,7 @@
 					products.empty();
 					console.log(selectedCategory)
 					$.ajax({
-						url : '/user/product/load-products?category='
+						url : '/home/product/load-products?category='
 								+ selectedCategory,
 						type : 'GET',
 						data : {

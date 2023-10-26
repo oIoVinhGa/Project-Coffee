@@ -57,15 +57,15 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav  ">
 							<li class="nav-item"><a class="nav-link"
-								href="/user/index">Home <span class="sr-only">(current)</span></a>
+								href="/home">Home <span class="sr-only">(current)</span></a>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="/user/abouts">
+							<li class="nav-item"><a class="nav-link" href="/home/abouts">
 									About</a></li>
-							<li class="nav-item"><a class="nav-link" href="/user/product">Products</a>
+							<li class="nav-item"><a class="nav-link" href="/home/product">Products</a>
 							</li>
 							<li class="nav-item"><a class="nav-link"
 								href="testimonial.html">Testimonial</a></li>
-							<li class="nav-item active"><a class="nav-link" href="/user/contact">Contact
+							<li class="nav-item active"><a class="nav-link" href="/home/contact">Contact
 									Us</a></li>
 						</ul>
 						<div class="user_optio_box">

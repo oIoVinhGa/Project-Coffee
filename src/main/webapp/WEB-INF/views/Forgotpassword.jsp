@@ -53,7 +53,7 @@
 				<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 					<div
 						class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-						<p class="lead fw-normal mb-0 me-3">Register Form</p>
+						<p class="lead fw-normal mb-0 me-3">Forgot Password</p>
 					</div>
 
 					<div class="divider d-flex align-items-center my-4">
@@ -64,9 +64,9 @@
 
 						<!-- Email input -->
 						<div class="form-outline mb-4">
-							<c:if test="${not empty error_RegisterAccount}">
+							<c:if test="${not empty error_EmailAccount}">
 								<div class="form-text text-danger" role="alert">
-									${error_RegisterAccount}</div>
+									${error_EmailAccount}</div>
 							</c:if>
 							<label class="form-label" for="form3Example3">Email</label>
 							<form:input type="text" id="form3Example3" path="email"
@@ -75,29 +75,15 @@
 							<form:errors path="email" cssClass="error"></form:errors>
 						</div>
 						<div class="form-outline mb-4">
+							<c:if test="${not empty error_forgotAccount}">
+								<div class="form-text text-danger" role="alert">
+									${error_forgotAccount}</div>
+							</c:if>
 							<label class="form-label" for="form3Example3">Username</label>
 							<form:input type="text" id="form3Example3" path="username"
 								class="form-control form-control-lg"
 								placeholder="Enter a valid Username" name="username" />
 							<form:errors path="username" cssClass="error"></form:errors>
-						</div>
-						<div class="form-outline mb-4">
-							<label class="form-label" for="form3Example3">Fullname</label>
-							<form:input type="text" id="form3Example3" path="fullname"
-								class="form-control form-control-lg"
-								placeholder="Enter a valid Username" name="username" />
-
-
-							<form:errors path="fullname" cssClass="error"></form:errors>
-						</div>
-						<div class="form-outline mb-4">
-							<label class="form-label" for="form3Example3">Password</label>
-							<form:input type="password" id="form3Example3" path="password"
-								class="form-control form-control-lg"
-								placeholder="Enter a valid password" name="password" />
-
-
-							<form:errors path="password" cssClass="error"></form:errors>
 						</div>
 						<div class="form-outline mb-4">
 							<label class="form-label" for="form3Example3">OTP Mail:</label>
@@ -110,7 +96,7 @@
 								</div>
 								<div class="col-md-3">
 									<form:button type="submit" class="btn btn-primary btn-block"
-										formaction="/register/SendOTP">Send OTP</form:button>
+										formaction="/forgotpassword/SendOTP">Send OTP</form:button>
 								</div>
 								<c:if test="${not empty error_SendMailOTP}">
 									<p>${error_SendMailOTP}</p>
@@ -121,13 +107,15 @@
 							</div>
 						</div>
 						<form:button type="submit" class="btn btn-primary"
-							formaction="/register/Create">Register</form:button>
+							formaction="/forgotpassword/Forgot">Forgot Password</form:button>
 					</form:form>
 					<div class="text-center text-lg-start mt-4">
-						<a href="/home/forgotpassword" class="text-body">Forgot password?</a>
+						<p class="small fw-bold mt-2 pt-1 mb-0">
+							Don't have an account? <a href="/home/register"
+								class="link-danger">Register</a>
+						</p>
 						<p class="small fw-bold mt-2 mb-0">
-							You already have an account? <a href="/Login"
-								class="link-danger">Login</a>
+							You already have an account? <a href="/Login" class="link-danger">Login</a>
 						</p>
 					</div>
 				</div>

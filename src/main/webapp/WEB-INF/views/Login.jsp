@@ -101,7 +101,7 @@
 									id="form2Example3" /> <label class="form-check-label"
 									for="form2Example3"> Remember me </label>
 							</div>
-							<a href="#!" class="text-body">Forgot password?</a>
+							<a href="/home/forgotpassword" class="text-body">Forgot password?</a>
 						</div>
 
 						<div class="text-center text-lg-start mt-4 pt-2">

@@ -20,7 +20,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
 		.excludePathPatterns("/assets/**");
 		
 		regisry.addInterceptor(auth)
-		.addPathPatterns("/account/**","/admin/**","/shopping-cart/views")
+		.addPathPatterns("/account/**","/admin/**","/shopping-cart/views","/user/**")
 		.excludePathPatterns("/assets/**","/home/**","/admin/contact/create");
 	}
 }
