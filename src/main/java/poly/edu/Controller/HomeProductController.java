@@ -36,7 +36,7 @@ public class HomeProductController {
 
 	@GetMapping({ "", "/", "/index" })
 	public String showProductUser(Model model, @RequestParam("p") Optional<Integer> p) {
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
+		Pageable pageable = PageRequest.of(p.orElse(0), 12);
 		Page<Product> pageProduct = productRepository.findAll(pageable);
 		model.addAttribute("pageproduct", pageProduct);
 		return "HomeProduct";
@@ -47,7 +47,7 @@ public class HomeProductController {
 			Model model) {
 		String kwords = search.orElse(session.get("search"));
 		session.set("search", kwords);
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
+		Pageable pageable = PageRequest.of(p.orElse(0), 9);
 		Page<Product> pageProduct = productRepository.findAllByNameLike("%" + kwords + "%", pageable);
 		model.addAttribute("pageproduct", pageProduct);
 
@@ -56,7 +56,7 @@ public class HomeProductController {
 
 	@GetMapping("/sortdesc")
 	public String sortDesc(Model model, @RequestParam("p") Optional<Integer> p) {
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
+		Pageable pageable = PageRequest.of(p.orElse(0), 9);
 		Page<Product> pageProduct = productRepository.findAllByOrderByPriceDesc(pageable);
 		model.addAttribute("pageproduct", pageProduct);
 		return "HomeProduct";
@@ -64,7 +64,7 @@ public class HomeProductController {
 
 	@GetMapping("/sortasc")
 	public String sortAsc(Model model, @RequestParam("p") Optional<Integer> p) {
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
+		Pageable pageable = PageRequest.of(p.orElse(0), 9);
 		Page<Product> page = productRepository.findAllByOrderByPriceAsc(pageable);
 		model.addAttribute("pageproduct", page);
 		return "HomeProduct";
@@ -73,7 +73,7 @@ public class HomeProductController {
 	@PostMapping("/searchMinMax")
 	public String search(Model model, @RequestParam("min") Optional<Double> min,
 			@RequestParam("max") Optional<Double> max, @RequestParam("p") Optional<Integer> p) {
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
+		Pageable pageable = PageRequest.of(p.orElse(0), 9);
 		double minPrice = min.orElse(Double.MIN_VALUE);
 		double maxPrice = max.orElse(Double.MAX_VALUE);
 		Page<Product> page = productRepository.findByPriceBetween(minPrice, maxPrice, pageable);
@@ -114,7 +114,7 @@ public class HomeProductController {
 	@GetMapping("/searchMinMax0_500")
 	public String search0_500(Model model, @RequestParam("min") Optional<Double> min,
 			@RequestParam("max") Optional<Double> max, @RequestParam("p") Optional<Integer> p) {
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
+		Pageable pageable = PageRequest.of(p.orElse(0), 9);
 		double minPrice = 0;
 		double maxPrice = 500000;
 		Page<Product> page = productRepository.findByPriceBetween(minPrice, maxPrice, pageable);
@@ -124,7 +124,7 @@ public class HomeProductController {
 	@GetMapping("/searchMinMax500_1000")
 	public String search500_1000(Model model, @RequestParam("min") Optional<Double> min,
 			@RequestParam("max") Optional<Double> max, @RequestParam("p") Optional<Integer> p) {
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
+		Pageable pageable = PageRequest.of(p.orElse(0), 9);
 		double minPrice = 500000;
 		double maxPrice = 1000000;
 		Page<Product> page = productRepository.findByPriceBetween(minPrice, maxPrice, pageable);
@@ -134,7 +134,7 @@ public class HomeProductController {
 	@GetMapping("/searchMinMax1000_1500")
 	public String search1000_500(Model model, @RequestParam("min") Optional<Double> min,
 			@RequestParam("max") Optional<Double> max, @RequestParam("p") Optional<Integer> p) {
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
+		Pageable pageable = PageRequest.of(p.orElse(0), 9);
 		double minPrice = 1000000;
 		double maxPrice = 1500000;
 		Page<Product> page = productRepository.findByPriceBetween(minPrice, maxPrice, pageable);

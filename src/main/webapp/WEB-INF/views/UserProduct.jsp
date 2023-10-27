@@ -90,12 +90,22 @@
 							<li class="nav-item"><a class="nav-link"
 								href="/user/contact">Contact Us</a></li>
 						</ul>
-						<div class="user_optio_box">
-							<a href="/Login"> <i class="fa fa-user"
-								aria-hidden="true"></i>
-							</a> <a href="/shopping-cart/views"> <i
+							<div class="user_optio_box">
+							<div class="dropdown show">
+								<a class="btn btn-secondary dropdown-toggle" href="#"
+									role="button" id="dropdownMenuLink" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">${UserSession.username}</a>
+
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<a class="dropdown-item" href="#">Profile</a> <a
+										class="dropdown-item" href="#">Change Pass</a> <a
+										class="dropdown-item" href="/Login/logout">Logout</a>
+								</div>
+							</div>
+
+							</a> <a class="btn btn-secondary " href="/shopping-cart/views"> <i
 								class="fa fa-shopping-cart" aria-hidden="true"></i>
-							</a>
+							</a> </a>
 						</div>
 					</div>
 				</nav>
@@ -154,7 +164,7 @@
 					<div class="box">
 						<div class="box-content">
 							<div class="img-box">
-								<img src="/uploads/${p.image}" alt="">
+								<a href="/home/productDetail/views/${p.id}"><img src="/uploads/${p.image}" alt=""></a>
 							</div>
 							<div class="detail-box">
 								<div class="text">

@@ -68,11 +68,22 @@
 							<li class="nav-item active"><a class="nav-link" href="/user/contact">Contact
 									Us</a></li>
 						</ul>
-						<div class="user_optio_box">
-							<a href="/home/Login"> <i class="fa fa-user" aria-hidden="true"></i>
-							</a> <a href="/shopping-cart/views"> <i class="fa fa-shopping-cart"
-								aria-hidden="true"></i>
-							</a>
+							<div class="user_optio_box">
+							<div class="dropdown show">
+								<a class="btn btn-secondary dropdown-toggle" href="#"
+									role="button" id="dropdownMenuLink" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">${UserSession.username}</a>
+
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<a class="dropdown-item" href="#">Profile</a> <a
+										class="dropdown-item" href="#">Change Pass</a> <a
+										class="dropdown-item" href="/Login/logout">Logout</a>
+								</div>
+							</div>
+
+							</a> <a class="btn btn-secondary " href="/shopping-cart/views"> <i
+								class="fa fa-shopping-cart" aria-hidden="true"></i>
+							</a> </a>
 						</div>
 					</div>
 				</nav>

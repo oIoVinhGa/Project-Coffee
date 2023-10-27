@@ -108,7 +108,7 @@
 						<div class="box">
 							<div class="box-content">
 								<div class="img-box">
-									<img src="/uploads/${p.image}" alt="">
+									<a href="/home/productDetail/views/${p.id}"><img src="/uploads/${p.image}" alt=""></a>
 								</div>
 								<div class="detail-box">
 									<div class="text">
@@ -152,7 +152,7 @@
 						<div class="box">
 							<div class="box-content">
 								<div class="img-box">
-									<img src="/uploads/${p.image}" alt="">
+									<a href="/home/productDetail/views/${p.id}"><img src="/uploads/${p.image}" alt=""></a>
 								</div>
 								<div class="detail-box">
 									<div class="text">
@@ -194,7 +194,7 @@
 						<div class="box">
 							<div class="box-content">
 								<div class="img-box">
-									<img src="/uploads/${p.image}" alt="">
+										<a href="/home/productDetail/views/${p.id}"><img src="/uploads/${p.image}" alt=""></a>
 								</div>
 								<div class="detail-box">
 									<div class="text">

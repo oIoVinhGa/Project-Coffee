@@ -8,7 +8,7 @@
 
 <head>
 <!-- Basic -->
-<meta charset="utf-8" />
+<meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <!-- Mobile Metas -->
 <meta name="viewport"
@@ -39,7 +39,6 @@
 <body>
 
 
-
 	<!-- header section strats -->
 	<header class="header_section">
 		<div class="container-fluid">
@@ -56,16 +55,15 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav  ">
-						<li class="nav-item"><a class="nav-link" href="/home">Home
-								<span class="sr-only">(current)</span>
+						<li class="nav-item active"><a class="nav-link"
+							href="/user/index">Home <span class="sr-only">(current)</span>
 						</a></li>
-						<li class="nav-item"><a class="nav-link" href="/home/abouts">
+						<li class="nav-item"><a class="nav-link" href="/user/abouts">
 								About</a></li>
-						<li class="nav-item"><a class="nav-link" href="/home/product">Products</a>
-						</li>
+						<li class="nav-item"><a class="nav-link" href="/user/product">Products</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="testimonial.html">Testimonial</a></li>
-						<li class="nav-item"><a class="nav-link" href="/home/contact">Contact
+						<li class="nav-item"><a class="nav-link" href="/user/contact">Contact
 								Us</a></li>
 					</ul>
 					<div class="user_optio_box">
@@ -89,100 +87,86 @@
 			</nav>
 		</div>
 	</header>
-	<!-- end header section -->
 
+	<section style="background-color: #eee;">
+		<div class="container py-5">
+			<form:form action="/Login/Profile" method="post"
+				modelAttribute="account" enctype="multipart/form-data">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="card mb-4">
+							<div class="card-body text-center">
+								<input type="file" name="image" accept="image/png, image/jpeg"
+									src="../uploads/${UserSession.photo}" alt="avatar"
+									class="rounded-circle img-fluid" style="width: 150px;">
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-8">
+						<div class="card mb-4">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-sm-3">
+										<p class="mb-0">Username</p>
+									</div>
+									<div class="col-sm-9">
+										<form:input path="username" type="text"
+											class="text-muted mb-0" name="username"
+											style="border: none; outline: none; width: 100%;"
+											readonly="true" />
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-3">
+										<p class="mb-0">Full Name</p>
+									</div>
+									<div class="col-sm-9">
+										<form:input path="fullname" type="text"
+											class="text-muted mb-0" name="fullname"
+											style="border: none; outline: none; width: 100%;" />
+									</div>
+								</div>
+								<hr>
 
-
-
-	<!-- service section -->
-
-
-
-	<!-- end service section -->
-
-
-	<!-- about section -->
-
-
-	<!-- end about section -->
-
-
-	<!-- product section -->
-	<section class="contact_section layout_padding">
-		<div class="container">
-			<div class="heading_container">
-				<h2>Your Cart</h2>
-			</div>
-			<div class="row">
-				<div class="col-md-8">
-					<div class="map_container">
-						<table class="table table-bordered">
-							<thead>
-								<tr>
-
-									<th>Name</th>
-									<th>Price</th>
-									<th>Quantity</th>
-									<th>Amount</th>
-									<th>Action</th>
-								</tr>
-							</thead>
-							<tbody>
-
-								<c:forEach var="item" items="${CART_ITEMS}">
-									<form action="/shopping-cart/update" method="post">
-										<input type="hidden" name="id" value="${item.productId}" />
-										<tr>
-
-											<td>${item.name }</td>
-											<td>${item.price}</td>
-											<td><input name="qty" value="${item.qty}"
-												onblur="this.form.submit()" style="width: 50px;"></td>
-											<td>${item.price*item.qty}</td>
-											<td><a class="btn btn-primary btn-sm"
-												href="/shopping-cart/del/${item.productId }">Remove</a></td>
-										</tr>
-									</form>
-								</c:forEach>
-							</tbody>
-						</table>
+								<div class="row">
+									<div class="col-sm-3">
+										<p class="mb-0">Password</p>
+									</div>
+									<div class="col-sm-9">
+										<form:input path="password" type="password"
+											class="text-muted mb-0" name="password"
+											style="border: none; outline: none; width: 100%;"
+											readonly="true" />
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-3">
+										<p class="mb-0">Email</p>
+									</div>
+									<div class="col-sm-9">
+										<form:input path="email" type="text" class="text-muted mb-0"
+											name="email"
+											style="border: none; outline: none; width: 100%;"
+											readonly="true" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="d-flex justify-content-end ">
+							<button type="submit" class="btn btn-primary">SAVE</button>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-4 ">
-					<div class="form_container">
-						<form:form action="/shopping-cart/create" method="post"
-							modelAttribute="ODERS">
-							<div>
-								<form:input path="phonenumber" type="text"
-									placeholder="Phone Number" />
-								<form:errors path="phonenumber" class="form-text text-danger" />
-							</div>
-							<div>
-								<form:input path="Address" type="text" class="message-box"
-									placeholder="Address" />
-								<form:errors path="Address" class="form-text text-danger" />
-							</div>
-							<p>Tong Tien:${TOTAL}</p>
-							<div class="btn_box">
-								<button formaction="/shopping-cart/create">SEND</button>
-							</div>
-
-						</form:form>
-					</div>
-
-				</div>
-			</div>
+			</form:form>
 		</div>
 	</section>
 
-	<!-- end contact section -->
 
 
-	<!-- client section -->
-	<section class="service_section">
-		<%@ include file="../views/common/ServiceSection.jsp"%>
-	</section>
-	<!-- end client section -->
+
+
 
 
 	<!-- info section -->

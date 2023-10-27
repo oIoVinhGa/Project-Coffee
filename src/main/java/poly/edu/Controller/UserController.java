@@ -5,9 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,6 +43,9 @@ public class UserController {
 
 		List<Product> productMoka = productRepository.findByCategoryIdLike("CF03");
 		model.addAttribute("ProductMoka", productMoka);
+
+		model.addAttribute("UserSession", session.get("user"));
+
 		return "Userindex";
 	}
 
@@ -55,19 +55,25 @@ public class UserController {
 		return "Register";
 	}
 
-
-
 	@RequestMapping("/abouts")
-	public String showAbouts() {
+	public String showAbouts(Model model) {
+		model.addAttribute("UserSession", session.get("user"));
 		return "UserAbout";
 	}
 
 	@RequestMapping("/contact")
 	public String showContacts(@ModelAttribute("CONTACT") Contact contact, Model model) {
-
+		model.addAttribute("UserSession", session.get("user"));
 		model.addAttribute("CONTACT", new Contact());
 
 		return "UserContact";
+	}
+
+	@RequestMapping("/profile")
+	public String showprofile(@ModelAttribute("account") Account ac, Model model) {
+		model.addAttribute("UserSession", session.get("user"));
+		model.addAttribute("account", session.get("user"));
+		return "profile";
 	}
 
 	@ModelAttribute("category")
@@ -75,10 +81,10 @@ public class UserController {
 		// List<Catagory> list = categoryRepository.findByNameSql("10");
 		List<Catagory> list = categoryRepository.findAll();
 		List<String> categoryList = new ArrayList<>();
-
 		for (Catagory l : list) {
 			categoryList.add(l.getName());
 		}
 		return categoryList;
 	}
+
 }
